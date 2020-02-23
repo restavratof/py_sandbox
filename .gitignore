@@ -1,2 +1,3 @@
 api/openweathermap/env.properties
 .idea/
+venv/
