@@ -34,8 +34,8 @@ city_id = 627907
 city_id = 625140
 
 # Download the JSON data from OpenWeatherMap.org's API.
-# url ='http://api.openweathermap.org/data/2.5/forecast/daily?q=%s&cnt=3' % (location)
 URL = f"http://api.openweathermap.org/data/2.5/forecast?id={city_id}&APPID={API_KEY}"
+
 
 response = requests.get(URL)
 response.raise_for_status()
