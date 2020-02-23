@@ -1,7 +1,14 @@
 import requests
 import json
-import os
+import os, sys
 import configparser
+
+# Compute location from command line arguments.
+# if len(sys.argv) < 2:
+#     print('Usage: quickWeather.py location')
+#     sys.exit()
+# location = ' '.join(sys.argv[1:])
+location = 'Gomel'
 
 
 config = configparser.ConfigParser()
@@ -26,21 +33,30 @@ city_id = 627907
 # Minski Rayon
 city_id = 625140
 
-
+# Download the JSON data from OpenWeatherMap.org's API.
+# url ='http://api.openweathermap.org/data/2.5/forecast/daily?q=%s&cnt=3' % (location)
 URL = f"http://api.openweathermap.org/data/2.5/forecast?id={city_id}&APPID={API_KEY}"
 
-DATA = {
-    "id":city_id,
-    "APPID":API_KEY
-}
-
-# r = requests.post(url = URL, data=json.dumps(DATA))
-r = requests.post(url = URL)
-
+response = requests.get(URL)
+response.raise_for_status()
 
 
 print('-'*50)
-# extracting response text
-pastebin_url = r.text
-print("The pastebin URL is:%s"%pastebin_url)
+# Load JSON data into a Python variable.
+weatherData = json.loads(response.text)
 
+print(weatherData)
+print('-'*50)
+# Print weather descriptions.
+w = weatherData['list']
+print('Current weather inbox %s:' % (location))
+print(w[0]['weather'][0]['main'], '-', w[0]['weather'][0]['description'])
+print()
+print('Tomorrow:')
+print(w[1]['weather'][0]['main'], '-', w[1]['weather'][0]['description'])
+print()
+print('Day after tomorrow:')
+print(w[2]['weather'][0]['main'], '-', w[2]['weather'][0]['description'])
+
+print('-'*50)
+# print(json.dumps(weatherData, indent=4, sort_keys=True))
