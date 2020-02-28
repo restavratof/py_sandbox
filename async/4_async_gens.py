@@ -1,7 +1,8 @@
 import socket
 from select import select
+from collections import deque
 
-tasks = []
+tasks = deque()
 to_read = {}
 to_write = {}
 
@@ -39,14 +40,14 @@ def event_loop():
         while not tasks:
             ready_to_read, ready_to_write, _ = select(to_read, to_write, [])
 
-            for sock in ready_to_read:
-                # tasks.append(to_read[sock])
-                tasks.append(to_read.pop(sock))
-            for sock in ready_to_write:
-                tasks.append(to_read.pop(sock))
+            for s in ready_to_read:
+                tasks.append(to_read.pop(s))
+
+            for s in ready_to_write:
+                tasks.append(to_write.pop(s))
 
         try:
-            task = tasks.pop(0)
+            task = tasks.popleft()
             reason, sock = next(task)
             if reason == 'read':
                 to_read[sock] = task

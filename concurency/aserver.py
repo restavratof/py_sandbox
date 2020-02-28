@@ -50,20 +50,18 @@ def fututre_monitor():
 tasks.append(fututre_monitor())
 
 def fib_server(address):
-    sock = socket(AF_INET, SOCK_STREAM)
+    sock = AsyncSocket(socket(AF_INET, SOCK_STREAM))
     sock.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
     sock.bind(address)
     sock.listen(5)
     while True:
-        yield 'recv', sock
-        client, addr = sock.accept()
+        client, addr = yield from sock.accept()
         print("Connection", addr)
         tasks.append(fib_handler(client))
 
 def fib_handler(client):
     while True:
-        yield 'recv', client
-        req = client.recv(100)
+        req = yield from client.recv(100)
         if not req:
             break
         n = int(req)
@@ -71,8 +69,7 @@ def fib_handler(client):
         yield 'future', future
         result = future.result()     # Blocks
         resp = str(result ).encode('ascii') + b'\n'
-        yield 'send', client
-        client.send(resp)
+        yield from client.send(resp)
     print('Closed')
 
 def run():
