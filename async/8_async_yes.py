@@ -21,7 +21,7 @@ async def main():
 
     async with aiohttp.ClientSession() as session:
         for i in range(10):
-            task = asyncio.create_task( (url, session))
+            task = asyncio.create_task(fetch_content(url, session))
             tasks.append(task)
 
         await asyncio.gather(*tasks)
