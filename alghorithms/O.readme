@@ -1,0 +1,11 @@
+O (Big O) - algorithm's work speed
+----------------------------------------------------------------------
+Run Time        - Time description      - Example
+----------------------------------------------------------------------
+O(log n)        - logarithmic time      - Binary search
+O(n)            - Linear time           - Simple search
+O(n * log n)    - Fast sorting          - Effective sorting algorithms
+O(n^2)          - Slow sorting          - Choose sorting
+O(n!)           - Very slow sorting     - traveling salesman task
+
+
