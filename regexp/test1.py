@@ -1,7 +1,7 @@
 import re
 
 
-def parse_mtype_descr(name, desc):
+def parse_mtype_descr(desc):
     """
     Parse Machine Type description and return vCPU number and RAM in GB
     :param desc: Raw description value from GCP API
@@ -32,19 +32,19 @@ def parse_mtype_descr(name, desc):
     return vcpu_num, ram_gb
 
 
-descs = {}
+descs = []
 
-descs["c2-standard-4"] = "Compute Optimized: 4 vCPUs, 16 GB RAM"
-descs["c2-standard-96"] = "Compute Optimized: 96 vCPUs, 1.4 TB RAM"
-descs["n1-standard-1"] = "1 vCPU, 3.75 GB RAM"
-descs["f1-micro"] = "1 vCPU (shared physical core) and 0.6 GB RAM"
-descs["g1-small"] = "1 vCPU (shared physical core) and 1.7 GB RAM"
-descs["e2-medium"] = "Efficient Instance, 2 vCPU (1/2 shared physical core) and 4 GB RAM"
-descs["e2-small"] = "Efficient Instance, 2 vCPU (1/4 shared physical core) and 2 GB RAM"
-descs["e2-micro"] = "Efficient Instance, 2 vCPU (1/8 shared physical core) and 1 GB RAM"
+descs.append("Compute Optimized: 4 vCPUs, 16 GB RAM")
+descs.append("Compute Optimized: 96 vCPUs, 1.4 TB RAM")
+descs.append("1 vCPU, 3.75 GB RAM")
+descs.append("1 vCPU (shared physical core) and 0.6 GB RAM")
+descs.append("1 vCPU (shared physical core) and 1.7 GB RAM")
+descs.append("Efficient Instance, 2 vCPU (1/2 shared physical core) and 4 GB RAM")
+descs.append("Efficient Instance, 2 vCPU (1/4 shared physical core) and 2 GB RAM")
+descs.append("Efficient Instance, 2 vCPU (1/8 shared physical core) and 1 GB RAM")
 
-for key, val in descs.items():
+for val in descs:
     # print(f'{key} - {val}')
-    cpun, ramn = parse_mtype_descr(key, val)
-    print(f'CPU: {float(cpun):<.2f} RAM: {float(ramn):<.2f}   - FROM: {key} * {val}')
+    cpun, ramn = parse_mtype_descr(val)
+    print(f'CPU: {float(cpun):<6.2f} RAM: {float(ramn):<7.2f}   - FROM: {val}')
 
