@@ -1,5 +1,3 @@
-
-
 var1 = 1
 var2 = 'b'
 var3 = 'c'
@@ -11,3 +9,11 @@ print(str)
 
 str = f'|{var1:<5d} | {var2:^5s} | {var3:>5s}|'
 print(str)
+
+
+print('|%-5s | %5s | %5s|' % (var1, var2, var3))
+
+
+
+
+
