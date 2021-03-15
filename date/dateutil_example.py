@@ -13,3 +13,11 @@ print(type(date2))
 
 print('-'*50)
 print(f'ISO: {datetime.now().isoformat()}')
+
+
+print('-'*50)
+print('- Parse date string with datetime:')
+str3 = '2020-07-07 14:36:30.979024'
+print(f'IN : {str3}')
+date_time_obj = datetime.strptime(str3, '%Y-%m-%d %H:%M:%S.%f')
+print(f'OUT: {date_time_obj.isoformat()}')
