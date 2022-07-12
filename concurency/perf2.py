@@ -3,19 +3,21 @@
 
 from socket import *
 import time
+from threading import Thread
+
 
 sock = socket(AF_INET, SOCK_STREAM)
 sock.connect(('localhost', 25000))
-
 n = 0
 
-from threading import Thread
+
 def monitor():
     global n
     while True:
         time.sleep(1)
         print(n, 'req/sec')
         n = 0
+
 
 Thread(target=monitor).start()
 while True:

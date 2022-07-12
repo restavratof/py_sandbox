@@ -14,7 +14,7 @@ def server():
     srv_socket.listen()
 
     while True:
-        yield ('read', srv_socket)
+        yield 'read', srv_socket
         client_socket, addr = srv_socket.accept()   # read
         print('Connection from', addr)
         tasks.append(client(client_socket))
@@ -22,14 +22,14 @@ def server():
 
 def client(client_socket):
     while True:
-        yield ('read', client_socket)
+        yield 'read', client_socket
         request = client_socket.recv(4096)   # read
 
         if not request:
             break
         else:
             response = 'Hello World\n'.encode()
-            yield ('write', client_socket)
+            yield 'write', client_socket
             client_socket.send(response)    # write
 
     client_socket.close()

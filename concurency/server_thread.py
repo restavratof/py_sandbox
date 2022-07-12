@@ -17,6 +17,7 @@ def fib_server(address):
         # fib_handler(client)
         Thread(target=fib_handler, args=(client,)).start()
 
+
 def fib_handler(client):
     while True:
         req = client.recv(100)
@@ -24,9 +25,9 @@ def fib_handler(client):
             break
         n = int(req)
         result = fib(n)
-        resp = str(result ).encode('ascii') + b'\n'
+        resp = str(result).encode('ascii') + b'\n'
         client.send(resp)
     print('Closed')
 
 
-fib_server(('',25000))
+fib_server(('', 25000))

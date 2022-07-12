@@ -1,4 +1,5 @@
-import json, requests, sys
+import json
+import requests
 
 # Compute location from command line arguments.
 # if len(sys.argv) < 2:
@@ -8,7 +9,7 @@ import json, requests, sys
 location = 'Gomel'
 
 # Download the JSON data from OpenWeatherMap.org's API.
-url ='http://api.openweathermap.org/data/2.5/forecast/daily?q=%s&cnt=3' % (location)
+url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=%s&cnt=3' % location
 response = requests.get(url)
 response.raise_for_status()
 
@@ -16,7 +17,7 @@ response.raise_for_status()
 weatherData = json.loads(response.text)
 # Print weather descriptions.
 w = weatherData['list']
-print('Current weather inbox %s:' % (location))
+print('Current weather inbox %s:' % location)
 print(w[0]['weather'][0]['main'], '-', w[0]['weather'][0]['description'])
 print()
 print('Tomorrow:')

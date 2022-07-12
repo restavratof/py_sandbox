@@ -2,15 +2,15 @@ import os
 
 data_dir = 'DIRECTORY TO CHECK'
 
-#--------------------------------------------
+# --------------------------------------------
 # SOLUTION FROM FORUM
 for root, dirs, files in os.walk(data_dir):
     level = root.replace(data_dir, '').count(os.sep)
-    indent = ' ' * 4 * (level)
+    indent = ' ' * 4 * level
     print('{}{}/'.format(indent, os.path.basename(root)))
-    subindent = ' ' * 4 * (level + 1)
+    sub_indent = ' ' * 4 * (level + 1)
     for f in files:
-        print('{}{}'.format(subindent, f))
+        print('{}{}'.format(sub_indent, f))
 
 print('---------------------------------------------------')
 # MY SOLUTION WITH STORING TREE IN DICTIONARY
@@ -18,6 +18,7 @@ print('---------------------------------------------------')
 mydict = {}
 
 if os.path.isdir(data_dir):
+    categories = None
     for subdir, dirs, files in os.walk(data_dir):
         # print('SUBDIR:{}   DIRS:{}    FILES:{}'.format(subdir, dirs, files))
         if subdir == data_dir:
@@ -46,4 +47,3 @@ if os.path.isdir(data_dir):
     print('---------------------------------------------------')
     print('CATEGORIES:{}'.format(categories))
     print('MYDICT    :{}'.format(mydict))
-

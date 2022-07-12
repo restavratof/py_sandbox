@@ -3,6 +3,7 @@ import selectors
 
 selector = selectors.DefaultSelector()
 
+
 def server():
     srv_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     srv_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -31,13 +32,14 @@ def send_message(client_socket):
 def event_loop():
     while True:
         events = selector.select()   # (key, events)
-        # Selectorkey
-        #   fileobj
+        # SelectorKey
+        #   fileObj
         #   events
         #   data
         for key, _ in events:
             callback = key.data
             callback(key.fileobj)
+
 
 if __name__ == '__main__':
     server()

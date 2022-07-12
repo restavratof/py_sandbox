@@ -42,12 +42,15 @@ def future_done(future):
     tasks.append(to_future.pop(future))
     future_notify.send(b'x')
 
+
 def fututre_monitor():
     while True:
         yield 'recv', future_event
         future_event.recv(100)
 
+
 tasks.append(fututre_monitor())
+
 
 def fib_server(address):
     sock = AsyncSocket(socket(AF_INET, SOCK_STREAM))
@@ -59,24 +62,26 @@ def fib_server(address):
         print("Connection", addr)
         tasks.append(fib_handler(client))
 
+
 def fib_handler(client):
     while True:
         req = yield from client.recv(100)
         if not req:
             break
         n = int(req)
-        future = pool.submit(fib,n)
+        future = pool.submit(fib, n)
         yield 'future', future
         result = future.result()     # Blocks
-        resp = str(result ).encode('ascii') + b'\n'
+        resp = str(result).encode('ascii') + b'\n'
         yield from client.send(resp)
     print('Closed')
+
 
 def run():
     while any([tasks, to_recv, to_send]):
         while not tasks:
             # No active tasks to run
-            #wait for I/O
+            # wait for I/O
             can_recv, can_send, [] = select(to_recv, to_send, [])
             for s in can_recv:
                 tasks.append(to_recv.pop(s))
@@ -96,11 +101,11 @@ def run():
                 to_future[what] = task
                 what.add_done_callback(future_done)
             else:
-                raise  RuntimeError("ARG!")
+                raise RuntimeError("ARG!")
 
         except StopIteration:
             print('task done')
 
-tasks.append(fib_server(('',25000)))
-run()
 
+tasks.append(fib_server(('', 25000)))
+run()

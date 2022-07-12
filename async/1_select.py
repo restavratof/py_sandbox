@@ -14,6 +14,7 @@ def accept_connection(server_socket):
     print('Connection from', addr)
     to_monitor.append(client_socket)
 
+
 def send_message(client_socket):
     request = client_socket.recv(4096)
 
@@ -22,6 +23,7 @@ def send_message(client_socket):
         client_socket.send(response)
     else:
         client_socket.close()
+
 
 def event_loop():
     while True:
@@ -32,6 +34,7 @@ def event_loop():
                 accept_connection(srv_socket)
             else:
                 send_message(sock)
+
 
 if __name__ == '__main__':
     to_monitor.append(srv_socket)

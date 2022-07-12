@@ -1,6 +1,6 @@
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as ElementTree
 
-tree = ET.parse('country.xml')
+tree = ElementTree.parse('country.xml')
 root = tree.getroot()
 
 for child in root:

@@ -4,6 +4,7 @@ import time
 # Multiprocessing is slower for short calculations.
 # It starts being faster for calculations which take >1minute. When calculate fibonacci for number 21 and higher.
 
+
 # Fibonacci function
 def fibonacci(n):
     if n == 0:
@@ -36,5 +37,3 @@ def plain(n: int):
 number = 41
 plain(number)
 multi(number)
-
-

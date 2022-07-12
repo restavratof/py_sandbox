@@ -1,5 +1,5 @@
 # perf1.py
-# Time of a long running request
+# Time of a long-running request
 
 from socket import *
 import time

@@ -10,8 +10,9 @@ def coroutine(func):
 class BlaBlaException(Exception):
     pass
 
+
 # @coroutine
-def subgen():
+def sub_gen():
     while True:
         try:
             msg = yield
@@ -21,6 +22,7 @@ def subgen():
         else:
             print('......', msg)
     return 'STR1'
+
 
 @coroutine
 def delegator(g):
@@ -39,6 +41,7 @@ def fib(n):
         return 1
     else:
         return fib(n-1) + fib(n-2)
+
 
 print(fib(1))
 print(fib(2))

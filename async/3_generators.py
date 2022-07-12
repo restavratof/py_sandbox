@@ -5,16 +5,18 @@ def gen_filename():
     while True:
         pattern = 'file-{}.jpeg'
         t = int(time() * 1000)  # milliseconds
-        yield  pattern.format(str(t))
+        yield pattern.format(str(t))
+
 
 def gen1(s):
-    for i in s:
-        yield i
+    for gi in s:
+        yield gi
 
 
 def gen2(n):
-    for i in range(n):
-        yield i
+    for gi in range(n):
+        yield gi
+
 
 g1 = gen1('oleg')
 g2 = gen2(4)
@@ -30,6 +32,3 @@ while tasks:
         tasks.append(task)
     except StopIteration:
         pass
-
-
-

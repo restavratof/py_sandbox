@@ -60,18 +60,7 @@ for fname in os.listdir(IN_DIR):
         out_image = in_image.copy()
         out_image.paste(logoIm, (0, height - logoHeight), logoIm)
         out_image.save(os.path.join(OUT_DIR, fname))
-
-
     else:
         print('WARNING: Proceed only pictures with extentions: png, jpg, jpeg. Skip file ({})'.format(fname))
 
 exit(1)
-
-
-
-
-
-
-
-
-

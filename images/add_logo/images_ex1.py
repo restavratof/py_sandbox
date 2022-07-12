@@ -24,8 +24,5 @@ print('IMAGE W:{}  H:{}'.format(width, height))
 
 
 out_image = in_image.copy()
-out_image.paste(logoIm, (0,height - logoHeight), logoIm)
+out_image.paste(logoIm, (0, height - logoHeight), logoIm)
 out_image.save(OUT_FILENAME)
-
-
-

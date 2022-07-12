@@ -1,4 +1,5 @@
-from tinydb import TinyDB, Query
+from tinydb import TinyDB
+
 dbpath = "/home/dfashchanka/PycharmProjects/py_sandbox/database/tinydb/testdb.json"
 db = TinyDB(dbpath)
 db.insert({'int': 1, 'char': 'a'})

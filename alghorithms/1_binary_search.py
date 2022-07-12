@@ -1,13 +1,13 @@
-import time
 
-def binary_search(list, item):
+
+def binary_search(mylist, item):
     low = 0
-    high = len(list) - 1
+    high = len(mylist) - 1
     # print(f' item: {item} - high: {high} - low: {low}')
     while low <= high:
         mid = (low + high) // 2
         # print(f' - low: {low}  high: {high}  mid: {mid}')
-        guess = list[mid]
+        guess = mylist[mid]
         if guess == item:
             return mid
         elif guess > item:

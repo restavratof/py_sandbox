@@ -1,10 +1,11 @@
+import functools as ft
 # https://forum.dabeaz.com/t/lambda-calculus-pycon-2019/408
 
 # --------------------------------------------------------------------------
 print('-'*100)
 print('-', 'MAP()')
 
-nums = (1,2,3,4)
+nums = (1, 2, 3, 4)
 
 
 def multiply(n):
@@ -40,9 +41,9 @@ print(f'4   : {list(result)}  from  {test1}')
 # --------------------------------------------------------------------------
 print('-'*100)
 print('-', 'REDUCE()')
-import functools as ft
-result = ft.reduce(lambda x,y: x if x>y else y, nums)
+
+result = ft.reduce(lambda x, y: x if x > y else y, nums)
 print(f'MAX : {result}')
 
-result = ft.reduce(lambda x,y: x+y, nums)
+result = ft.reduce(lambda x, y: x+y, nums)
 print(f'SUM : {result}')

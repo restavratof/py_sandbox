@@ -10,14 +10,14 @@ def send_message(message):
     return
 
 
-def read_key_from_file(file_path:str):
+def read_key_from_file(file_path: str):
     # print(f'read_key_from_file - IN: {file_path}')
-    result = ''
+    out = None
     if os.path.exists(file_path):
         f = open(file_path, "r")
-        result = f.read()
+        out = f.read()
     # print(f'read_key_from_file - OUT: {result}')
-    return result
+    return out
 
 
 if __name__ == '__main__':

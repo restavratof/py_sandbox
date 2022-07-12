@@ -1,13 +1,7 @@
 import requests
 import json
-import os, sys
 import configparser
 
-# Compute location from command line arguments.
-# if len(sys.argv) < 2:
-#     print('Usage: quickWeather.py location')
-#     sys.exit()
-# location = ' '.join(sys.argv[1:])
 location = 'Gomel'
 
 
@@ -28,7 +22,7 @@ print(API_KEY)
 #       "lon": 30.975401,
 #       "lat": 52.434502
 #     }
-city_id = 627907
+# city_id = 627907
 
 # Minski Rayon
 city_id = 625140
@@ -49,7 +43,7 @@ print(weatherData)
 print('-'*50)
 # Print weather descriptions.
 w = weatherData['list']
-print('Current weather inbox %s:' % (location))
+print('Current weather inbox %s:' % location)
 print(w[0]['weather'][0]['main'], '-', w[0]['weather'][0]['description'])
 print()
 print('Tomorrow:')

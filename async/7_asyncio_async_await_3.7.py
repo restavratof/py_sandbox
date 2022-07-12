@@ -27,8 +27,6 @@ async def main():
     await asyncio.gather(task1, task2)
 
 
-
-
 if __name__ == '__main__':
     asyncio.run(main())
 

@@ -2,12 +2,14 @@
 
 num = 5
 
+
 # Recursion
 def fact(x):
     if x == 1:
         return 1
     else:
         return x * fact(x-1)
+
 
 # Loop
 def fact_loop(x):
@@ -16,6 +18,6 @@ def fact_loop(x):
         result *= i
     return result
 
+
 print(f'Recursion: {fact(num)}')
 print(f'Loop     : {fact_loop(num)}')
-

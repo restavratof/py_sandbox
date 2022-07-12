@@ -1,5 +1,6 @@
 print('-'*50)
 
+
 def current_row(n):
     row = list()
     for i in range(n):
@@ -15,8 +16,9 @@ def triangle(m):
     result = list()
     for i in range(m):
         result.append(current_row(i + 1))
-    ### beautify
+    # beautify
     for j in result:
         print(*j)
+
 
 triangle(5)

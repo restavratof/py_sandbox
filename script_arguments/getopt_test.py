@@ -1,10 +1,11 @@
-import getopt, sys
+import getopt
+import sys
 
 
 def main():
     try:
         opts, args = getopt.getopt(sys.argv[1:], "l:", ["lang="])
-    except getopt.GetoptError as err:
+    except getopt.GetoptError:
         print(f"Usage: {sys.argv[0]} -l <lang>")  # will print something like "option -a not recognized"
         sys.exit(2)
     lang = 'en'

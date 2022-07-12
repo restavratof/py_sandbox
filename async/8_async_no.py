@@ -6,6 +6,7 @@ def get_file(url):
     r = requests.get(url, allow_redirects=True)
     return r
 
+
 def write_file(response):
     # https: // loremflickr.com / cache / resized / 65535_49050016798_7432460ce8_n_320_240_nofilter.jpg
     filename = response.url.split('/')[-1]
@@ -21,7 +22,6 @@ def main():
         write_file(get_file(url))
 
     print(time()-t0)
-
 
 
 if __name__ == '__main__':
