@@ -4,7 +4,7 @@ import os
 LOGO_FILENAME = 'logo.png'
 # LOGO_FILENAME = 'logo_complete.png'
 
-IN_FILENAME = 'inbox/pic1.jpg'
+IN_FILENAME = '../_in/pic1.jpg'
 
 in_name, in_ext = os.path.splitext(IN_FILENAME)
 OUT_FILENAME = in_name + '_logo' + in_ext

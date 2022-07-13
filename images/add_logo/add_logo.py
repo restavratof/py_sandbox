@@ -47,7 +47,7 @@ else:
 
 #################################################################################
 # Go through files inbox INBOX directory
-print('Reading files in inbox directory ({})...'.format(IN_DIR))
+print('Reading files _in inbox directory ({})...'.format(IN_DIR))
 for fname in os.listdir(IN_DIR):
     # Check if a file
     if os.path.isfile(os.path.join(IN_DIR, fname)) and fname.lower().endswith(('.png', '.jpg', '.jpeg')):
