@@ -1,3 +1,5 @@
 api/openweathermap/env.properties
 .idea/
 venv/
+/images/_in/
+/images/_out/
