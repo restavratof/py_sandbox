@@ -1,7 +1,8 @@
-print('-'*50)
+"""Pascal Triangle"""
 
 
 def current_row(n):
+    """Calculate current triangle row by row number"""
     row = list()
     for i in range(n):
         if i == 0 or i == n - 1:
@@ -13,6 +14,7 @@ def current_row(n):
 
 
 def triangle(m):
+    """Generate Pascal Triangle"""
     result = list()
     for i in range(m):
         result.append(current_row(i + 1))

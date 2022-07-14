@@ -1,5 +1,8 @@
+"""Selection Sort Example"""
+
 
 def find_smallest(arr):
+    """Find Smalles element of a list"""
     smallest_index = 0
     smallest = arr[smallest_index]
     for i in range(1, len(arr)):
@@ -10,6 +13,7 @@ def find_smallest(arr):
 
 
 def selection_sort(arr):
+    """Perform selection sort on a list"""
     new_arr = []
     for i in range(len(arr)):
         smallest = find_smallest(arr)

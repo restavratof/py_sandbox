@@ -1,18 +1,17 @@
-# Factorial
-
+"""Factorial"""
 num = 5
 
 
-# Recursion
 def fact(x):
+    """Recursion way"""
     if x == 1:
         return 1
     else:
         return x * fact(x-1)
 
 
-# Loop
 def fact_loop(x):
+    """Loop way"""
     result = 1
     for i in range(1, x+1):
         result *= i

@@ -1,6 +1,8 @@
+"""Binary search example"""
 
 
 def binary_search(mylist, item):
+    """Binary search function"""
     low = 0
     high = len(mylist) - 1
     # print(f' item: {item} - high: {high} - low: {low}')
@@ -10,7 +12,7 @@ def binary_search(mylist, item):
         guess = mylist[mid]
         if guess == item:
             return mid
-        elif guess > item:
+        if guess > item:
             high = mid - 1
         else:
             low = mid + 1
