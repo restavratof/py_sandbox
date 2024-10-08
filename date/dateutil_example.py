@@ -21,3 +21,11 @@ str3 = '2021-07-07 14:36:30.979024'
 print(f'IN : {str3}')
 date_time_obj = datetime.strptime(str3, '%Y-%m-%d %H:%M:%S.%f')
 print(f'OUT: {date_time_obj.isoformat()}')
+
+
+print('-'*50)
+str4 = '2024-09-01T16:20:47.67Z'
+date_time_obj = datetime.strptime(str4, "%Y-%m-%dT%H:%M:%S.%fZ")
+# print(f'OUT: {date_time_obj.isoformat()}')
+print(f'OUT: {date_time_obj.strftime("%Y-%m-%d")}')
+
